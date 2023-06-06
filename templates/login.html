@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block banner %}
+{% endblock %}
+
+{% block content %}
+    
+    <div class="row">
+        <h1 class="mt-4 ps-2 fs-2">Formulário de login</h1>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col">
+            <form method="POST" action="" class="border p-5">
+                {{ form_login.csrf_token }}
+                <legend>Login</legend>
+                <fieldset>
+
+                    <div class="form-group mb-2">
+                        {{ form_login.email.label (class="form-control-label") }}
+
+                        {% if form_login.email.errors %}
+                            {{form_login.email (class="form-control is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form_login.email.errors %}
+                                        {{ error }}
+                                    {% endfor %}                
+                                </div>
+                        {% else %}
+                            {{ form_login.email (class="form-control") }}        
+                        {% endif %} 
+                    </div>
+
+                    <div class="form-group mb-2">
+                        {{form_login.senha.label (class="form-control-label")}}
+                        {{form_login.senha (class="form-control")}}
+                    </div>
+
+                </fieldset>
+                {{ form_login.SubmitLogin (class="btn btn-dark mt-2") }}
+            </form>
+        </div>
+
+        <div class="col">
+            <form method="POST" action="" class="border p-5">
+                <legend>Novo Login</legend>
+                <fieldset>
+                    <div class="form-group mb-2">
+                        {{ form_novo_login.nome.label (class="form-control-label") }}
+                        {{ form_novo_login.nome (class="form-control") }}
+                    </div>
+                    <div class="form-group mb-2"> 
+                        {{ form_novo_login.email.label (class="form-control-label") }}
+                        {{ form_novo_login.email (class="form-control") }}
+                    </div>
+                    <div class="form-group mb-2"> 
+                        {{ form_novo_login.celular.label (class="form-control-label") }}
+                        {{ form_novo_login.celular (class="form-control") }}
+                    </div>
+                    <div class="form-group mb-2"> 
+                        {{ form_novo_login.cpf.label (class="form-control-label") }}
+                        {{ form_novo_login.cpf (class="form-control") }}
+                    </div>
+                    <div class="form-goup mb-2">
+                        {{ form_novo_login.senha.label (class="form-control-label") }}
+                        {{ form_novo_login.senha (class="form-control") }}
+                    </div>
+                    <div class="form-group mb-2"> 
+                        {{ form_novo_login.senhaConfirmacao.label (class="form-control-label") }}
+                        {{ form_novo_login.senhaConfirmacao (class="form-control") }}
+                    </div>
+                </fieldset>
+                {{ form_novo_login.subimit (class="btn btn-dark mt-2") }}
+            </form>
+        </div>
+    
+    </div>
+
+
+{% endblock %}

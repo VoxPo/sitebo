@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="col-12 mt-2">
+    <div class="row">
+        <div class="px-4 py-5">
+            <h2 class="pb-2 border-bottom">Curso em Destaque</h2>
+            <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+              <div class="feature col">
+                <div class="mb-3">
+                  <img src="{{ url_for('static', filename='image/logica.png') }}" height="100" width="100">
+                </div>
+                <h3 class="fs-2">Lógica de Programação</h3>
+                <p>Lógica de programação refere-se à capacidade de pensar e resolver problemas de forma estruturada, utilizando uma sequência lógica de passos para alcançar um objetivo. É a base fundamental para a programação de computadores e envolve o desenvolvimento de algoritmos, ou seja, instruções passo a passo que levam à solução de um problema.</p>
+                <a href="#" class="icon-link">Saiba mais</a>
+              </div>
+              <div class="feature col">
+                <div class="mb-3">
+                    <img src="{{ url_for('static', filename='image/db.png') }}" height="100" width="100">
+                </div>
+                <h3 class="fs-2">Banco de dados</h3>
+                <p>Um banco de dados é um sistema organizado e estruturado para armazenar e gerenciar grandes quantidades de informações de forma persistente. Ele é projetado para coletar, armazenar, recuperar, gerenciar e manipular dados de forma eficiente e segura.</p>
+                <a href="#" class="icon-link">Saiba mais</a>
+              </div>
+              <div class="feature col">
+                <div class="mb-3">
+                    <img src="{{ url_for('static', filename='image/ux.png') }}" height="100" width="160">
+                </div>
+                <h3 class="fs-2">UX/UI</h3>
+                <p>UX (User Experience) e UI (User Interface) são termos comumente usados no design de produtos digitais, especialmente em relação a aplicativos e websites. Embora sejam conceitos distintos, eles estão intimamente relacionados e trabalham juntos para fornecer uma experiência satisfatória para o usuário.</p>
+                <a href="#" class="icon-link">Saiba mais</a>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>
+
+<div class="container">
+    <h2 class="pb-2 border-bottom">Depoimentos</h2>
+
+    <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
+      <div class="col d-flex flex-column align-items-start gap-2">
+        <h3 class="fw-bold">Depoimentos de alguns alunos dos nossos cursos EAD</h3>
+        <p class="text-body-secondary">Faça sua matrícula hoje mesmo</p>
+        <a href="#" class="btn btn-primary btn-lg">Faça sua matrícula</a>
+      </div>
+
+      <div class="col">
+        <div class="row row-cols-1 row-cols-sm-2 g-4">
+          <div class="col d-flex flex-column gap-2">
+            <div>
+                <img src="{{ url_for('static', filename='image/dep1.png') }}" height="80" width="90" class="rounded-circle">
+            </div>
+            <h4 class="fw-semibold mb-0">Curso de lógica</h4>
+            <p class="text-body-secondary">Eu só tenho elogios para o curso de lógica. O atendimento ao cliente foi excepcional, e o produto que comprei superou todas as minhas expectativas. Com certeza vou recomendar para todos os meus amigos e familiares!</p>
+          </div>
+
+          <div class="col d-flex flex-column gap-2">
+            <div>
+                <img src="{{ url_for('static', filename='image/dep3.jpg') }}" height="80" width="90" class="rounded-circle">
+            </div>
+            <h4 class="fw-semibold mb-0">Curso de Python</h4>
+            <p class="text-body-secondary">Estou extremamente satisfeito com os serviços da empresa ABC. Eles foram muito profissionais e eficientes desde o primeiro contato. Resolveram o meu problema de forma rápida e eficaz. Recomendo a todos que precisem de um serviço de qualidade!</p>
+          </div>
+
+          <div class="col d-flex flex-column gap-2">
+            <div>
+                <img src="{{ url_for('static', filename='image/dep5.jpg') }}" height="80" width="90" class="rounded-circle">
+            </div>
+            <h4 class="fw-semibold mb-0">Curso de banco de dados</h4>
+            <p class="text-body-secondary">Eu gostaria de expressar minha gratidão à equipe da empresa 123. Eles me ajudaram a encontrar exatamente o que eu precisava e me guiaram durante todo o processo. Fiquei impressionado com a atenção aos detalhes e o comprometimento em entregar um produto de alta qualidade. Estou muito satisfeito com a minha experiência!</p>
+          </div>
+
+          <div class="col d-flex flex-column gap-2">
+            <div >
+                <img src="{{ url_for('static', filename='image/dep4.jpg') }}" height="80" width="90" class="rounded-circle">
+            </div>
+            <h4 class="fw-semibold mb-0">Curso de UxUi</h4>
+            <p class="text-body-secondary">Não poderia estar mais satisfeito com a empresa ABC. Eles superaram todas as minhas expectativas. O produto que adquiri é de alta qualidade, e o suporte pós-venda tem sido excelente. Recomendo essa empresa a todos que buscam produtos e serviços excepcionais!"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
