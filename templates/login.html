@@ -18,13 +18,13 @@
 
                     <div class="form-group mb-2">
                         {{ form_login.email.label (class="form-control-label") }}
-
+ 
                         {% if form_login.email.errors %}
-                            {{form_login.email (class="form-control is-invalid") }}
-                                <div class="invalid-feedback">
-                                    {% for error in form_login.email.errors %}
-                                        {{ error }}
-                                    {% endfor %}                
+                        {{form_login.email (class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form_login.email.errors %}
+                                    {{ error }}
+                                {% endfor %}                
                                 </div>
                         {% else %}
                             {{ form_login.email (class="form-control") }}        
@@ -37,12 +37,13 @@
                     </div>
 
                 </fieldset>
-                {{ form_login.SubmitLogin (class="btn btn-dark mt-2") }}
+                {{ form_login.submitLogin (class="btn btn-dark mt-2") }}
             </form>
         </div>
 
         <div class="col">
             <form method="POST" action="" class="border p-5">
+                {{ form_novo_login.csrf_token }}
                 <legend>Novo Login</legend>
                 <fieldset>
                     <div class="form-group mb-2">
@@ -70,7 +71,7 @@
                         {{ form_novo_login.senhaConfirmacao (class="form-control") }}
                     </div>
                 </fieldset>
-                {{ form_novo_login.subimit (class="btn btn-dark mt-2") }}
+                {{ form_novo_login.submit (class="btn btn-dark mt-2") }}
             </form>
         </div>
     
