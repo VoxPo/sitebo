@@ -1,11 +1,18 @@
 import mysql.connector
-from flask import Flask, render_template, request, url_for, flash, redirect, session
-from forms import formLogin, formNovoUsuario
+from flask import Flask, render_template, request, url_for, flash, redirect, session, send_from_directory
+from forms import formLogin, formNovoUsuario, formCadastroProduto
 from hashlib import sha256
+from flask_uploads import UploadSet, IMAGES, configure_uploads
+
 
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = '2dc162370584a8d07a41582768c0478d'
+app.config['UPLOADED_PHOTOS_DEST'] = 'uploads'
+
+upload = UploadSet('photos', IMAGES)
+configure_uploads(app, upload)
+
 
 mydb = mysql.connector.connect(
     host = 'localhost',
@@ -21,6 +28,9 @@ def index():
 @app.route("/base")
 def base():
     return render_template("base.html")
+
+
+
 
 @app.route("/login", methods=['get', 'post'])
 def login():
@@ -70,6 +80,8 @@ def login():
 
     return render_template("login.html", descricao = descricao, form_login = form_login, form_novo_login = form_novo_login, titulo = titulo)
 
+
+
 @app.route("/contato")
 def contato():
     return render_template("contato.html")
@@ -81,6 +93,37 @@ def cursos():
 @app.route("/EAD")
 def ead():
     return render_template("ead.html")
+
+
+@app.route('/logOut')
+def logout():
+    session.clear()
+    return redirect(url_for('login'))
+
+
+@app.route('/uploads/<filename>')
+def get_file(filename):
+    return send_from_directory(app.config['UPLOADED_PHOTOS_DEST'], filename)
+
+
+@app.route('/cadastro_curso', methods= ['GET', 'POST'])
+def cadastrocurso():
+    if session.get("nome_usuario"):
+        titulo = 'cadastro de curso'
+
+        form_cadastro_produto = formCadastroProduto()
+
+        file_url =''
+
+        if form_cadastro_produto.validate_on_submit():
+            filename = upload.save(form_cadastro_produto.imagem.data)
+            file_url = filename
+
+        return render_template('cadastroCursos.html', titulo = titulo, form_cadastro_produto = form_cadastro_produto, file_url = file_url)
+    
+    return redirect(url_for('Login'))
+
+
 
 if __name__ == '__main__' :
     app.run(debug=True)    
