@@ -15,9 +15,10 @@ configure_uploads(app, upload)
 
 
 mydb = mysql.connector.connect(
-    host = 'localhost',
-    user = 'root',
-    password = 'P@$$w0rd',
+    host = 'db-mysql-nyc1-97096-do-user-14262463-0.b.db.ondigitalocean.com',
+    port = '25060'
+    user = 'doadmin',
+    password = 'AVNS_8umiTzBdZHI7b5re2wz',
     database = 'ead_senac',
 )
 
