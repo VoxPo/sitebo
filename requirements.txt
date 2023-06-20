@@ -14,3 +14,4 @@ mysql-connector-python==8.0.33
 protobuf==3.20.3
 Werkzeug==2.3.4
 WTForms==3.0.1
+gunicorn==19.7.1
