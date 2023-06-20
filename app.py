@@ -49,7 +49,7 @@ def login():
         senha = form_login.senha.data
         hashSenha = sha256(senha.encode())
 
-        comando = f'Select * from alunos where email = "{email}"'
+        comando = f"Select * from alunos where email = '{email}'"
         cursor.execute(comando)
         result = cursor.fetchall()
 
